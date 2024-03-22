@@ -1,0 +1,25 @@
+<div class="zone-wrap">
+    <div class="container">
+        <div class="zone-text en">
+            <h3>Zone</h3>
+            <div>Studio 5 has three main zones to provide the kids extraordinary learning experiences.</div>
+        </div>
+        <div class="service-zone en">
+            <div class="flex-row same-height col-4 ng-scope">
+                @for (item of zone; track $index) {
+                    <div class="item">
+                        <div class="icon"
+                        [style.background]="'url(http://51.136.51.121/drupal-app/web/' + item.zoneimage + ') no-repeat'">
+                        </div>
+                        <h3>{{item.zonenames}}</h3>
+                        <div class="desc" [innerHTML]="item.zonesdescription">
+                           
+                        </div>
+                    </div>
+                }
+               
+               
+            </div><span class="grey-square"></span>
+        </div>
+    </div>
+</div>

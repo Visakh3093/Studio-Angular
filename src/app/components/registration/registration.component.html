@@ -1,0 +1,80 @@
+<div id="main-container">
+    <app-pagetitle [title]="title"></app-pagetitle>
+    <div class="container">
+        <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/registration" (click)="handleClear()">Register</a> </li>
+                @if (subTitle !='') {
+                    <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                        ><span>{{subTitle}}</span></a></li>
+                }
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="parent-color-container"><span class="grey-square-rotate red-sq one"></span><span
+            class="grey-square-rotate red-sq two"></span><span class="grey-square-rotate red-sq three"></span><span
+            class="grey-square-rotate red-sq four"></span><span class="orange-circle one"></span><span
+            class="orange-circle two"></span><span class="orange-circle three"></span><span
+            class="multi-square one"><b><i></i></b></span><span class="multi-square two"><b><i></i></b></span><span
+            class="multi-square three"><b><i></i></b></span></div>
+    <div class="parent-registration-container">
+        <div id="skipContent" class="container registration-form">
+            <div class="registration-container" style="min-height: 40vh;">
+                <h2 id="registration-title" class="primary-heading" style="text-align: left;">Are you?</h2>
+                <div class="btn-wrap type-selection" id="skipContent">
+                    <button (click)="changeSubtitle('Guardian')" aria-label="Are you Guardian" routerLink="/registration/parent" routerLinkActive="active"
+                        role="button" class="btn "> Guardian</button>
+                    <button (click)="changeSubtitle('Student')" aria-label="Are you Student" routerLink="/registration/student" routerLinkActive="active"
+                        role="button" class="btn">Student</button>
+                    <button (click)="changeSubtitle('School')" aria-label="Are you School" routerLink="/registration/school" routerLinkActive="active"
+                        role="button" class="btn">School</button>
+                    <button (click)="changeSubtitle('Volunteer')" aria-label="Are you Volunteer" routerLink="/registration/volunteer"
+                        routerLinkActive="active" role="button" class="btn">Volunteer</button>
+                </div>
+                @switch (subTitle) {
+                    @case ('Guardian') {
+                        <app-guardian></app-guardian>
+                    }
+                    @case ('Volunteer') {
+                        <app-volunteer></app-volunteer>
+                    }
+                    @case ('Student') {
+                       <app-student></app-student>
+                    }
+                    @case ('School') {
+                        <app-school></app-school>
+                    }
+                    @default {
+                       
+                    }
+                }
+    
+            </div>
+
+           
+           
+        </div>
+    </div>
+    <div id="termsAndConditionModal" class="modal" role="dialog" tabindex="0">
+        <div class="modal-content "><span class="badge modalClose"><button type="button" aria-label="close" tabindex="0"
+                    class="close"><i class="material-icons">close</i></button></span>
+            <h4>Terms and Conditions</h4>
+            <div class="description">
+                <p>Ministry of Transport and Communications (MOTC) is committed to protecting your privacy and providing
+                    a secure website environment. MOTC does not collect personal information about you when you visit
+                    our website unless you specifically and knowingly choose to provide such information to us. Any
+                    personal information which you volunteer will be treated with the highest standards of security and
+                    confidentiality.</p>
+
+                <p>We will not use personal information you provide for commercial use. Personal information will not be
+                    forwarded to third parties unless MOTC is required by law or that entity is relevant to your
+                    enquiry.</p>
+
+                <p>This statement relates to our privacy practices in connection with this website. We are not
+                    responsible for the content or privacy practices o</p>
+            </div><button class="modal-close waves-effect waves-green btn blue pull-right">Agree</button>
+        </div>
+    </div>
+    <app-lower-img></app-lower-img>
+</div>

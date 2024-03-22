@@ -1,0 +1,34 @@
+<div class="articles">
+    <app-pagetitle [title]="title"></app-pagetitle>
+    <div id="skipContent">
+        <div id="main-container" class="single-news">
+            <div>
+                <div class="container"><span class="multi-square"><b><i></i></b></span><span
+                        class="grey-square-rotate"></span><span class="grey-square-rotate bottom"></span><span
+                        class="orange-circle"></span>
+                    <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+                        <ul>
+                            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                            <li class="breadcrumb-item"><a routerLink="/media-center">Media Center</a></li>
+                            <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                                   ><span>{{Data.title}}</span></a></li>
+                        </ul>
+                    </nav>
+                    <h2 id="gallery-title" tabindex="0" aria-label="Green is the New Smart Published <time datetime=&quot;2023-05-17T11:26:59+00:00&quot; class=&quot;datetime&quot;>17 May 2023</time>
+ 
+        ">{{Data.title}}</h2>
+                    <div class="date-wrap" [innerHTML]="Data.date">
+                    </div>
+                    <div class="content" [innerHTML]="Data.description">
+                        
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="view-more articles"><a routerLink="/media-center"><i
+                                class="material-icons ar">arrow_backward</i> Back</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <app-lower-img></app-lower-img>
+</div>

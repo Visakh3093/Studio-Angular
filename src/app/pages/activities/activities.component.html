@@ -1,0 +1,134 @@
+<div id="main-content" class="activiti-list">
+
+  <app-pagetitle [title]="titlePage"></app-pagetitle>
+
+  <div class="container">
+    <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+      <ul>
+        <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+        <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+            routerLink="/activities"><span>Activities</span></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <span class="multi-square one"><b><i></i></b></span>
+
+  <div id="skipContent">
+    <div id="main-container">
+      <div class="container">
+        <form class="searc" [formGroup]="formData" (ngSubmit)="onSubmit()">
+          <div class="row topFormHolder">
+            <div class="col s12 m6 l3">
+              <div class="input-field item"><input name="title" placeholder="Title" id="title" type="text"
+                  aria-label="Activity search title" value="" formControlName="title"><label for="title"
+                  style="left: 0px; right: auto;">Title</label><span class="helper-text"></span></div>
+            </div>
+            <div class="col s12 m6 l3 date-popup">
+              <div class="input-field mobileSelect item en"><label for="activityType" class="active"
+                  style="left: 0px; right: auto;">Activity type</label><select class="browser-default"
+                  id="field_activity_category_target_id" tabindex="0"
+                  formControlName="field_activity_category_target_id">
+                  <option value="" disabled="">Select activity type</option>
+                  <option value="All">All</option>
+                  <option value="77">Public activity</option>
+                  <option value="78">School activity</option>
+                </select><span class="helper-text"></span></div>
+            </div>
+            <div class="col s12 m6 l3 date-popup">
+              <div class="input-field item">
+                <div class="react-datepicker-wrapper">
+                  <div class="react-datepicker__input-container"><input name="field_start_and_end_time_value"
+                      autocomplete="off" id="field_start_and_end_time_value" placeholder="Date" type="date"
+                      class="hiddenDob customDateField" value=""
+                      formControlName="field_start_and_end_time_value"><button aria-label="choose date button"
+                      type="button" class="example-custom-input"><span aria-hidden="true"
+                        class="material-icons">date_range</span></button></div>
+                </div><label for="field_start_and_end_time_value" style="left: 0px; right: auto;">Date</label><span
+                  class="helper-text"></span>
+              </div>
+            </div>
+            <div class="col s12 m6 l3 valign-wrapper center-align search-btn-holder"><button type="submit"
+                class="btn noWidth profileBtn yellow waves-effect waves-light" aria-label="Activit search">Search <i
+                  class="material-icons en">arrow_forward</i></button><button type="button"
+                aria-label="Activity search clear" class="btn noWidth blue-btn waves-effect waves-light">Clear</button>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col s7 result-status"></div>
+          <div class="col s5 result-type">
+            <div class="input-field col s12 mobileSelect filter-select en"><label for="result-type">Select
+                Activity</label><select id="result-type" class="browser-default" tabindex="0">
+                <option value="All">All</option>
+                <option value="competition">Competitions</option>
+                <option value="session">Workshops</option>
+                <option value="event">Events</option>
+                <option value="challenge">Challenges</option>
+                <option value="project">Projects</option>
+              </select></div>
+          </div>
+        </div>
+        <ul class="activities-list" aria-label="activities">
+          @if (results) {
+         
+          <ul>
+            <li
+              *ngFor="let item of results | paginate: { id:'pagination' ,itemsPerPage: pager?.items_per_page, currentPage: currentPage, totalItems:pager?.count}"
+              class="newactivities test3">
+              <div class="figHolderNA"><img [src]="item?.field_activity_thumbnail" alt="test 2023 image"></div>
+              <div class="textHolderNA">
+                <div class="topTextHolderNA Creativity Zone">
+                  <a aria-label="test 2023 Activity mixed 5-15 Years Old Start date 12 Jan, 2024 10:00 am and End date 20 Feb, 2024 10:00 am"
+                    [routerLink]="'/activity/'+item?.nid">
+                    <h4><i class="topHeadNA"></i>{{item?.title}}</h4>
+                  </a>
+                  <div class="topTextInsideNA">
+                    <span class="blackText"><i class="topBoyIconNA"></i>{{item?.field_gender}}</span>
+                    <span>{{item.field_age_group}}Years Old</span>
+                  </div>
+                </div>
+                <div class="bottomTextHolderNA">
+                  <div class="bottomTextLeftNA" [innerHTML]="item?.body"></div>
+                  <div class="bottomTextRightNA">
+                    <span class="calendarNA"><i class="calendar-icons"></i> Start date
+                      <span class="date">{{dateSplit(item.field_start_and_end_time_3)}}
+                        <br><small>{{dateSplit(item.field_start_and_end_time)}}</small></span>
+                    </span>
+                    <span class="calendarNA"><i class="calendar-icons"></i> End date
+                      <span
+                        class="date">{{dateSplit(item.field_start_and_end_time_4)}}<br><small>{{dateSplit(item.field_start_and_end_time_1)}}</small></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="btnHolderNA">
+                <button class="btn">Volunteer Now</button>
+                <button *ngIf="dateFormatter(item.field_start_and_end_time_3 ) < currentDate"
+                  class="btn blueColor btn-disabled">Closed</button>
+                <button *ngIf="!(dateFormatter(item.field_start_and_end_time_3) < currentDate)"
+                  class="btn blueColor">Enroll</button>
+              </div>
+            </li>
+          </ul>
+
+          }
+
+
+        </ul>
+       
+
+     
+<pagination-controls id="pagination" (pageChange)="pageUpdate($event)"></pagination-controls>
+
+      </div>
+      <div class="sparkles"><span class="orange-circle"></span><span class="multi-square two"><b><i></i></b></span><span
+          class="grey-square-rotate red-sq one"></span><span class="grey-square-rotate red-sq two"></span>
+      </div>
+    </div>
+
+    <app-lower-img></app-lower-img>
+
+  </div>
+
+</div>

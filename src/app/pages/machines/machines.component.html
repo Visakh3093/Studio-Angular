@@ -1,0 +1,41 @@
+<app-pagetitle [title]="title"></app-pagetitle>
+
+<div id="main-container">
+    
+    <div class="container">
+        <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+                <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                        routerLink="/machines"><span>Machines</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="skipContent" class="container">
+        <h2 class="line">Machines</h2>
+        <div class="machine-item-holder">
+          @for (item of machineData; track $index) {
+            <div class="machine-item">
+                <figure class="machine-item-figure"><img
+                        [src]="'http://51.136.51.121/drupal-app/web/'+item?.field_machines_image_1" alt="">
+                </figure>
+                <aside class="machine-item-content"><a [routerLink]="'/machine-detail/'+item?.nid">
+                        <h4>{{item?.title}}</h4>
+                    </a>
+                    <h5>{{item?.field_machine_brand}}</h5>
+                    <div [innerHTML]="item?.field_machines_brief">
+                        
+                    </div><a  aria-label="view more Ultimaker 3 &amp; Ultimaker 3 Extended"
+                        class="machine-btn">View More</a>
+                </aside>
+            </div>
+          }
+            
+        </div>
+        <nav class="pagination-wrapper" aria-label="pagination">
+            <ul class="pagination">
+                <li class="active"><a class="undefined" href="#" aria-label="Go to page number 1">1</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

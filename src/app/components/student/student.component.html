@@ -1,0 +1,148 @@
+<h2 tabindex="0" aria-label="For Student form" class="primary-heading" style="text-align: left;">For Student</h2>
+<div class="row">
+    <div class="col s6 form-container">
+        <p style="text-align: left;">Required fields are followed by <span class="asterisk">*</span></p>
+        @if (success) {
+
+            <div class="error-container success" tabindex="0">
+                <h5>Thanks for Registration.</h5>
+                <p>Registration is Successful</p>
+                <p>Please check your Email Inbox for the Verification Process</p>
+            </div>
+    
+            }
+    
+            @if (isEmptyObj()) {
+    
+                <div class="error-container fail" tabindex="0">
+                    <h5>There is a problem with the form, please check and correct the following:</h5>
+                    <ul>
+                        @for (item of getObjectKeys(errorObj) ; track $index) 
+                        {
+                            <li>
+                                <label tabindex="0" class="error" [attr.for]="item">
+                                    {{ errorObj[item] }}
+                                  </label>
+                            </li>
+                        }
+    
+                    </ul>
+                </div>
+                }
+    
+        <form [formGroup]="formData" (ngSubmit)="handleSubmit()" autocomplete="no">
+
+            @for (item of inputData; track $index) {
+                @switch (item.type) {
+                    @case ("text") {
+                        <div class="input-field item">
+                            <input name={{item.key}} formControlName={{item.key}} placeholder={{item.placeholder}} id={{item.key}}
+                                class="" data-date="" data-date-format="DD MMMM YYYY" type="text" autocomplete="no" value=""
+                                style="text-align: left;"><label for={{item.key}} style="left: 0px; right: auto;">{{item.label}}
+                                <span class="asterisk">*</span></label><span class="helper-text" data-error="Required field."
+                                style="text-align: left;"></span>
+                            </div>
+                    }
+                    @case ("email") {
+
+                        <div class="input-field item">
+                            <input name={{item.key}} formControlName={{item.key}} placeholder={{item.placeholder}} id={{item.key}}
+                                class="fontEnglish" data-date="" data-date-format="DD MMMM YYYY" type={{item.key}} autocomplete="no"
+                                value="" style="text-align: left;"><label for={{item.key}} style="left: 0px; right: auto;">{{item.label}}<span
+                                    class="asterisk">*</span></label><span class="helper-text" data-error="Required field."
+                                style="text-align: left;"></span>
+                            </div>
+                            
+                    }
+                    @case ("mobile") {
+
+                        <div class="row mobile">
+                            <div class="col s4">
+                                <div class="input-field item"><input name="mobile_country_code" class="" placeholder="Country Code"
+                                        id="mobile_country_code" type="text" minlength="3" maxlength="3" disabled="" value="+974"
+                                        style="text-align: left;"><label for="mobile_country_code"
+                                        style="left: 0px; right: auto;">Country Code</label><span class="helper-text"
+                                        data-error="Enter a valid code."></span></div>
+                            </div>
+                            <div class="col s8">
+                                <div class="input-field item"><input name={{item.key}} class="" placeholder={{item.placeholder}} formControlName={{item.key}}
+                                        aria-label="Mobile number starting with country code +974" id={{item.key}} maxlength="8"
+                                        type="text" autocomplete="no" value="" style="text-align: left;"><label for={{item.key}}
+                                        style="left: 0px; right: auto;">{{item.label}}<span class="asterisk">*</span></label><span
+                                        class="helper-text" data-error="Required field." style="text-align: left;"></span></div>
+                            </div>
+                        </div>
+
+                    }
+                    @case ("select") {
+
+            <div class="result-type1">
+                <div class="input-field mobileSelect">
+                    <label for={{item.key}} style="left: 0px; right: auto;">{{item.label}} <span class="asterisk">*</span></label>
+                    <select class="browser-default" name={{item.key}} id={{item.key}} tabindex="0" style="text-align: left;"
+                        [formControlName]="item.key">
+                        <option value="">Select your nationality </option>
+                        @for (item of item.options; track $index) {
+                            <option value={{item.value}}>{{item.sname}}</option>
+                        }
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="helper-text" data-error="Required field." style="text-align: left;"></span>
+                </div>
+            </div>
+                    }
+                    @case ("checkbox") {
+
+                        <div class="item subscribe-items">
+                            <p><input type="checkbox" formControlName={{item.key}} name={{item.key}} id={{item.key}} tabindex="0" style="text-align: left;"><label
+                                    for={{item.key}}><span class="en">I agree to the studio 5<button type="button"
+                                            aria-label="Read terms and condition" tabindex="0" class="modal-trigger underline-text"
+                                            style="border: 0px; background: none;"> Terms and conditions</button></span></label></p>
+                        </div>
+
+                    }
+                    @case ("radio") {
+
+                        <div class="input-field item">
+                            <div class="input-radio valign-wrapper" role="radiogroup" aria-labelledby="gender">
+                               
+                                        @for (option of item.options; track $index) {
+
+                                            <div class="Female">
+                                                <input aria-checked="false" value={{option.value}} formControlName={{item.key}} name={{item.key}} id={{option.label}}
+                                                    aria-labelledby="gender Female" type="radio"  class="radio-btn">
+                                                    <label id="_Female" for={{option.label}} class="custom-radio-style">
+                                                        <span class="custom-radio-style">{{option.label}}</span>
+                                                    </label>
+                                                </div>
+                                        }
+                            </div><label for="gender" id="gender" style="left: 0px; right: auto;">Gender <span
+                                    class="asterisk">*</span></label><span class="helper-text" data-error="Required field."></span>
+                        </div>
+
+                    }
+                    @case ("date") {
+                        
+                        <div class=" date-popup">
+                            <div class="input-field item">
+                                <div class="react-datepicker-wrapper">
+                                    <div class="react-datepicker__input-container">
+                                        <input name={{item.key}} autocomplete="off" id={{item.key}}
+                                            placeholder={{item.placeholder}} formControlName={{item.key}} type="date"  value=""><button
+                                            aria-label="choose date of birth button" type="button"
+                                            class="example-custom-input"><span aria-hidden="true"
+                                                class="material-icons">date_range</span></button></div>
+                                </div><label for={{item.key}} style="left: 0px; right: auto;">{{item.label}}<span
+                                        class="asterisk">*</span></label><span class="helper-text" data-error="Required field."
+                                    style="text-align: left;"></span>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+         
+            <div class="btn-wrap"><button class="btn blue">Register</button></div>
+        </form>
+    </div>
+    <div class="col s6"></div>
+</div>

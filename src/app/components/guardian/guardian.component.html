@@ -1,0 +1,116 @@
+<h2 tabindex="0" aria-label="For Guardian form" class="primary-heading" style="text-align: left;">For Guardian</h2>
+<div class="row">
+    <div class="col s6 form-container">
+        <p style="text-align: left;">Required fields are followed by <span class="asterisk">*</span></p>
+        @if (success) {
+
+        <div class="error-container success" tabindex="0">
+            <h5>Thanks for Registration.</h5>
+            <p>Registration is Successful</p>
+            <p>Please check your Email Inbox for the Verification Process</p>
+        </div>
+
+        }
+
+        @if (isEmptyObj()) {
+
+            <div class="error-container fail" tabindex="0">
+                <h5>There is a problem with the form, please check and correct the following:</h5>
+                <ul>
+                    @for (item of getObjectKeys(errorObj) ; track $index) 
+                    {
+                        <li>
+                            <label tabindex="0" class="error" [attr.for]="item">
+                                {{ errorObj[item] }}
+                              </label>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            }
+
+        
+
+        <form [formGroup]="formData" (ngSubmit)="handleSubmit()" autocomplete="no">
+            @for (item of inputData; track $index) {
+            @switch (item.type) {
+            @case ("text") {
+
+            <div class="input-field item">
+                <input formControlName={{item.key}} name={{item.key}} placeholder={{item.placeholder}} id={{item.key}}
+                    class="" type="text" autocomplete="no" value="" style="text-align: left;" />
+                <label for={{item.key}} style="left: 0px; right: auto;">{{item.label}}<span class="asterisk">*</span>
+                </label>
+                <span class="helper-text" data-error="Required field." style="text-align: left;"> </span>
+            </div>
+
+            }
+            @case ("mobile") {
+
+            <div class="row mobile">
+                <div class="col s4">
+                    <div class="input-field item">
+                        <input name="mobileNumber_country_code" placeholder="Country Code" class=""
+                            id="mobileNumber_country_code" type="text" minlength="3" maxlength="3" disabled=""
+                            value="+974" style="text-align: left;" />
+                        <label for="mobileNumber_country_code" style="left: 0px; right: auto;">Country Code</label><span
+                            class="helper-text" data-error="Enter a valid code."></span>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div class="input-field item">
+                        <input formControlName={{item.key}} name={{item.key}} placeholder={{item.placeholder}}
+                            id={{item.key}} class="" maxlength="8" type="text"
+                            aria-label="Mobile number starting with country code +974" autocomplete="no" value=""
+                            style="text-align: left;" />
+                        <label for={{item.key}} style="left: 0px; right: auto;">{{item.label}} <span
+                                class="asterisk">*</span></label><span class="helper-text" data-error="Required field."
+                            style="text-align: left;"></span>
+                    </div>
+                </div>
+            </div>
+
+            }
+            @case ("email") {
+
+            <div class="input-field item">
+                <input formControlName={{item.key}} name={{item.key}} placeholder="Type your email" id={{item.key}}
+                    class="fontEnglish" type={{item.key}} autocomplete="no" value="" style="text-align: left;" />
+                <label for={{item.key}} style="left: 0px; right: auto;">{{item.label}}<span
+                        class="asterisk">*</span></label><span class="helper-text" data-error="Required field."
+                    style="text-align: left;"></span>
+            </div>
+
+            }
+            @case ("checkbox") {
+
+            <div class="item subscribe-items">
+                <p>
+                    <input type="checkbox" name={{item.key}} id={{item.key}} formControlName={{item.key}}
+                        style="text-align: left;" />
+                    <label for={{item.key}}>
+                        <span class="en">
+                            I agree to the studio 5
+                            <button type="button" aria-label="Read terms and condition" tabindex="0"
+                                class="modal-trigger underline-text" style="border: 0px; background: none;">
+                                Terms and conditions
+                            </button>
+                        </span>
+                    </label>
+                </p>
+            </div>
+
+            }
+            }
+            }
+
+
+
+
+            <div class="btn-wrap"><button class="btn blue">Register</button></div>
+        </form>
+    </div>
+    <div class="col s6"></div>
+    <div></div>
+</div>

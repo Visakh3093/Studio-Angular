@@ -1,0 +1,82 @@
+<div class="news-wrap">
+  <div class="container">
+    <h2 id="news-media" class="line">News &amp; Media<span class="grey-square-rotate"></span></h2>
+    <div class="flex-row col-2">
+      <div class="item news-item">
+        <div class="flex-row col-3">
+          <div class="homeNewsParent"><a class="item homeNewsText1" aria-label="Test news 2023 News Published <time datetime=&quot;2023-12-19T13:13:52+00:00&quot; class=&quot;datetime&quot;>19 December 2023</time>
+ 
+    "[routerLink]="'/news/'+articleData.nid" >
+              <h3>{{articleData.title}}</h3>
+            </a>
+            <div class="img-wrap"><img
+                src="undefined/sites/default/files/2023-12/4.jpg, /sites/default/files/2023-12/4_0.jpg"
+                alt="news image"></div>
+            <div class="homeNewsText2">
+              <div class="category-wrap">{{articleData.category}}</div>
+              <div class="desc" [innerHTML]="articleData.description">
+                
+              </div>
+              <p class="date-wrap" [innerHTML]="articleData.date">
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item gal-item en">
+        <div class="flex-row col-2">
+          <div class="item">
+            <div class="">
+              <div class="videowrapper"><object data="http://www.youtube.com/watch?v=1SqBdS0XkV4" tabindex="-1">
+                  <param name="movie" value={{videoData.video}}>
+                  <param name="allowFullScreen" mozallowfullscreen="mozallowfullscreen"
+                    msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
+                    webkitallowfullscreen="webkitallowfullscreen" value="true"><span>{{videoData.category}}</span>
+                </object></div>
+              <div class="category-wrap Video">{{videoData.category}}</div><a aria-label="test video Video Published <time datetime=&quot;2023-12-17T08:56:58+00:00&quot; class=&quot;datetime&quot;>17 December 2023</time>
+     
+    " [routerLink]="'/news/'+videoData.nid">
+                <div class="desc">{{videoData.title}}</div>
+              </a>
+              <p class="date-wrap" aria-label="Published " [innerHTML]="videoData.date">
+
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="">
+              <div class="img-wrap">
+                <div>
+
+
+                  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+                    <div class="field__label visually-hidden">Image</div>
+                    <div class="field__item"> <img loading="lazy"
+                        width="4032"
+                        height="3024"  [innerHTML]="galleryData.image" alt="">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="category-wrap Gallery">{{galleryData.category}}</div><a aria-label="3D Print a Mini-City Gallery Published <time datetime=&quot;2019-10-24T10:26:52+00:00&quot; class=&quot;datetime&quot;>24 October 2019</time>
+     
+    "[routerLink]="'/news/'+galleryData.nid">
+                <div class="desc">{{galleryData.title}}</div>
+              </a>
+              <p class="date-wrap" [innerHTML]="galleryData.date">
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view-more home"><a aria-label="Button for view more news and media" routerLink="/media-center">View More<i
+          class="material-icons en"></i></a></div>
+    <div class="multi-square"><b><i></i></b></div>
+    <div class="multi-circle"><b><i></i></b></div>
+  </div>
+</div>

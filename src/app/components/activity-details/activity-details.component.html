@@ -1,0 +1,137 @@
+<div id="main-content" class="activity-details">
+    <app-pagetitle [title]="title"></app-pagetitle>
+    <div class="container">
+        <div class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+                <li class="breadcrumb-item"><a routerLink="/activities">Activities</a> </li>
+                <li class="breadcrumb-item"><span>Workshop Details</span></li>
+            </ul>
+        </div>
+    </div>
+    @if (results) {
+    <div id="skipContent">
+        <div id="main-container">
+            <div class="container1">
+                <div>
+                    <div class="event-details event-detail">
+                        <div class="container">
+                            <div class="flex-row">
+                                <h2>{{results.eventname}}</h2><button class="btn blue-btn ">Enroll</button>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="article-news">
+                                <div class="slick-slider slider news-slider slick-initialized">
+                                    <div class="slick-list">
+                                        <div class="slick-track"
+                                            style="width: 922px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                            <div data-index="0" class="slick-slide slick-active slick-current"
+                                                tabindex="-1" aria-hidden="false" style="outline: none; width: 922px;">
+                                                <div>
+                                                    <div class="item" tabindex="-1"
+                                                        style="width: 100%; display: inline-block;">
+                                                        @if (imgData) {
+                                                        <div class="sliderHeightNew1"><img
+                                                                [src]="'http://51.136.51.121'+imgData[0]" alt=""></div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="description" [innerHTML]="results.details">
+
+                                </div><br>
+                                @if (!results.description) {
+                                <h3 style="color: rgb(79, 89, 168); font-size: 16px;">Learning Objective</h3>
+
+                                }
+                                <div class="description" [innerHTML]="results.field_activity_objective
+                                        ">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row  details-wrap noFlex">
+                                <h3>Details</h3>
+                                <div class="col s6 main-details">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th>Date</th>
+                                                <td class="activityDetailDateRow p0">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Start date</th>
+                                                                <th>End date</th>
+                                                            </tr>
+                                                            @for (item of dateArray_1; track $index) {
+                                                                <tr>
+                                                                    <td>
+                                                                      {{dateArray_1[$index]}}            </td>
+                                                                    <td>
+                                                                        {{dateArray_2[$index]}}
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                        
+                                                    </table>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Address</th>
+                                                @if (results.field_activity_address == '') {
+
+                                                <td>Address unavailable</td>
+                                                }
+                                                @else {
+                                                <td [innerHTML]="results.field_activity_address"></td>
+                                                }
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col s6 main-details">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th>Age group</th>
+                                                <td>{{results.age_group}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Gender</th>
+                                                <td>{{results.gender}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>No of Attendee</th>
+                                                <td>{{results.field_number_of_attendees}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col s12 main-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="sparkles"><span class="orange-circle"></span><span class="multi-square one"><b><i></i></b></span><span
+            class="multi-square two"><b><i></i></b></span><span class="grey-square-rotate red-sq one"></span><span
+            class="grey-square-rotate red-sq two"></span></div>
+    <app-lower-img></app-lower-img>
+</div>

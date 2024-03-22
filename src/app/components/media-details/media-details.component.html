@@ -1,0 +1,14 @@
+@switch (resData.category) {
+    @case ("Articles") {
+          <app-article-more-details [Data]="resData" [imgData]="imageData"></app-article-more-details>
+    } 
+    @case ("Video") {
+          <app-video-more-details [Data]="resData" [imgData]="imageData"></app-video-more-details>
+    }
+    @case ("Gallery") {
+          <app-gallery-more-details [Data]="resData" [imgData]="imageData"></app-gallery-more-details>
+    }
+    @default {
+         <app-news-more-details [Data]="resData" [imgData]="imageData"></app-news-more-details>
+    }
+}

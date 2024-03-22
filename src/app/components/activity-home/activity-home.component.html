@@ -1,0 +1,54 @@
+<div class="activityHome">
+    <div class="container">
+        <div class="zone-text en ">
+            <h3 id="activity">Activities</h3>
+            <div>Explore our latest activities and enroll in them<a class="btnNewYellow btn" aria-labelledby="activity"
+                    aria-label="Button for view more activity" routerLink="/activities">View More <i
+                        class="material-icons en">arrow_forward</i></a></div>
+        </div>
+        <div class="row noFlex">
+            <ul aria-label="Activities">
+                @for (item of response; track $index) {
+
+                <li class="col s12 m4 l4">
+                    <div class="newactivities">
+                        <div class="textHolderNA Investigation-Zone">
+                            <div class="topTextHolderNA"><a
+                                    aria-label="Layan School Activity test Mixed 10-20 Years Old Start date 05 Nov, 2024 09:39 am End date 06 Dec, 2024 10:39 am"
+                                [routerLink]="'/activity/'+item?.nid">
+                                    <h4><i class="topHeadNA"></i>{{item.title}}</h4>
+                                </a>
+                                <div class="topTextInsideNA"><span class="blackText"><i class="topBoyIconNA"></i>
+                                        {{item.field_gender}}</span><span>{{item.field_age_group}} Years Old</span>
+                                </div>
+                            </div>
+                            <div class="bottomTextHolderNA">
+                                <div class="bottomTextRightNA"><span class="calendarNA"><i class="calendar-icons"></i>
+                                        Start date <span
+                                            class="date">{{item.field_start_and_end_time_3}}<br><small>{{item.field_start_and_end_time}}</small></span></span><span
+                                        class="calendarNA"><i class="calendar-icons"></i> End date<span
+                                            class="date">{{item.field_start_and_end_time_4}}<br><small>{{item.field_start_and_end_time_1}}</small></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btnHolderNA">
+                              @if (dateFormatter(item.field_start_and_end_time_3) > currentDate) {
+                                <button aria-label="Layan School Activity test Enroll"
+                                class="btn blueColor ">Enroll
+                            </button>
+
+                            <button class="btn" aria-label="volunteer now for Layan School Activity test">Volunteer Now
+                            </button>
+                              }
+        
+                        </div>
+                    </div>
+                </li>
+
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</div>

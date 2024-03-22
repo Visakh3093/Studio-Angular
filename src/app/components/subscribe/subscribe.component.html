@@ -1,0 +1,172 @@
+
+    
+        <div id="main-content">
+            <app-pagetitle [title]="title"></app-pagetitle>
+           
+            <div class="container">
+                <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+                    <ul>
+                        <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+                        <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                                routerLink="/subscribe"><span>Subscribe</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="main-container">
+                <div id="skipContent" class="container">
+                    <div class="row col-2">
+                        <div class="item subscribe-form">
+                            <h2 style="margin-bottom: 10px;">Subscribe</h2>
+                            <p>Please fill out the form below to receive our update</p>
+                            @if (success) {
+
+                                <div class="error-container success" tabindex="0">
+                                    <h5>Thanks for Registration.</h5>
+                                    <p>Registration is Successful</p>
+                                    <p>Please check your Email Inbox for the Verification Process</p>
+                                </div>
+                        
+                                }
+                        
+                                @if (isEmptyObj()) {
+                        
+                                    <div class="error-container fail" tabindex="0">
+                                        <h5>There is a problem with the form, please check and correct the following:</h5>
+                                        <ul>
+                                            @for (item of getObjectKeys(errorObj) ; track $index) 
+                                            {
+                                                <li>
+                                                    <label tabindex="0" class="error" [attr.for]="item">
+                                                        {{ errorObj[item] }}
+                                                      </label>
+                                                </li>
+                                            }
+                        
+                                        </ul>
+                                    </div>
+                                    }
+                            <form [formGroup]="formData" (ngSubmit)="handleSubmit()" class="subscribe-form">
+                                @for (item of inputData; track $index) {
+                                    @switch (item.type) {
+                                        @case ("text") {
+                                           
+                                            <div class="input-field item">
+                                                <input name={{item.key}} placeholder={{item.key}} id={{item.key}} formControlName={{item.key}} 
+                                                    type="text"  value=""><label for={{item.key}}
+                                                    style="left: 0px; right: auto;">Name</label><span class="helper-text"
+                                                    data-error="Required field."></span></div>
+                                                    
+                                        }
+                                        @case ("email") {
+
+                                           
+
+                                                <div class="input-field item"><input name={{item.key}} placeholder="Email" formControlName={{item.key}}  
+                                                    id={{item.key}} for="email_address" type="email" value=""><label
+                                                for="email" style="left: 0px; right: auto;">Email</label><span
+                                                class="helper-text" data-error="Please enter a valid email address"></span>
+                                        
+                                       </div>
+
+                                        }
+                                        @case ("mobile") {
+                                            
+                                                <div class="input-field item">
+                                                    <input formControlName={{item.key}} name={{item.key}}
+                                                        placeholder="Mobile Number" id={{item.key}} 
+                                                        type="text" maxlength="8" value=""><label for={{item.key}}
+                                                        style="left: 0px; right: auto;">Mobile Number</label><span
+                                                        class="helper-text" data-error="Required field"></span></div>
+                                            
+
+                                        }
+                                        @case ("radio") {
+                                            <div class="input-field  subscribe-items">
+                                                <div style="margin: 0px;">
+                                                   
+                                                           
+                                                                    @for (option of item.options; track $index) {
+                            
+                                                                        <div class="Female">
+                                                                            <input aria-checked="false" value={{option.value}} formControlName={{item.key}} name={{item.key}} id={{option.label}}
+                                                                                aria-labelledby="gender Female" type="radio"  class="radio-btn">
+                                                                                <label id="_Female" for={{option.label}} class="custom-radio-style">
+                                                                                    <span class="custom-radio-style">{{option.label}}</span>
+                                                                                </label>
+                                                                            </div>
+                                                                    }
+                                                        </div><label for="gender" id="gender" style="left: 0px; right: auto;"><h4 id="describe-title">How you best describe yourself?</h4> <span
+                                                                class="asterisk"></span></label><span class="helper-text" data-error="Required field."></span>
+                                                   
+                                            </div>
+
+                                        }
+                                        @case ("checkbox") {
+                                            <div class="input-check subscribe-items checkboxNew">
+                                                <div class="item">
+                                                    <p><input formControlName={{item.key}} type="checkbox" name="agree" id="agree" tabindex="0"
+                                                            aria-label="i agree Privacy Policy" style="text-align: left;"><label
+                                                            for="agree" id="desc-agree"><span class="en">I agree to the studio 5
+                                                                <u><a class="modal-trigger">Privacy
+                                                                        Policy</a></u></span></label></p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                              
+                                <div class="form-check">
+                                    <div class="text-item">
+                                        
+                                    </div>
+                                    
+                                   
+                                </div>
+                                <div class="btn-wrap"><button class="btn blue-btn  subscribe"
+                                        style="margin: 0px 0px 5px; text-transform: uppercase;">Subscribe <i
+                                            class="material-icons en">arrow_forward</i></button></div>
+                                <div id="modal1" class="modal" role="dialog" tabindex="0">
+                                    <div class="modal-content"><span class="badge modalClose"><button type="button"
+                                                aria-label="close" tabindex="0" class="close"><i
+                                                    class="material-icons">close</i></button></span>
+                                        <div>
+                                            <h3>Privacy Policy</h3>
+                                        </div>
+                                        <div>
+                                            <p>Ministry of Communications and Information Technology&nbsp;(MCIT) is
+                                                committed to protecting your privacy and providing a secure website
+                                                environment. MCIT does not collect personal information about you when
+                                                you visit our website unless you specifically and knowingly choose to
+                                                provide such information to us. Any personal information which you
+                                                volunteer will be treated with the highest standards of security and
+                                                confidentiality.</p>
+
+                                            <p>We will not use personal information you provide for commercial use.
+                                                Personal information will not be forwarded to third parties unless MCIT
+                                                is required by law or that entity is relevant to your enquiry.</p>
+
+                                            <p>This statement relates to our privacy practices in connection with this
+                                                website. We are not responsible for the content or privacy practices o
+                                            </p>
+
+                                            <div class="bootstrapiso" data-original-title="" id="mttContainer"
+                                                style="left: 0px; top: 0px; position: fixed; z-index: 100000200; width: 500px; margin-left: -250px; background-color: rgba(0, 0, 0, 0); pointer-events: none; transform: translate(358px, 131px);"
+                                                title="">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer"><a href="#!"
+                                            class="modal-close waves-effect waves-green btn-flat">Ok</a></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="item"><img src="../../../assets/images/subscribe-right.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+           
+            <app-lower-img></app-lower-img>
+        </div>
+
+       
+    
+

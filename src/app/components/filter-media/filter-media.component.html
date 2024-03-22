@@ -1,0 +1,89 @@
+<app-pagetitle [title]="title"></app-pagetitle>
+
+<div id="main-content" class="media-center-page">
+
+    <div class="container">
+        <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+                <li class="breadcrumb-item"><a tabindex="0" aria-current="page" routerLink="/media-center"><span>Media
+                            Center</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div id="skipContent">
+        <div class="container">
+            <div class="row">
+                <div class="col s3 left-side">
+                    <div class="filter-wrap">
+                        <h3 id="filter-title">Filter Media</h3>
+                        <ul aria-label="aside navigation">
+                            @for (item of filterData; track $index) {
+
+                            <li class="media-item en"><a aria-label="News section contains 58 items"
+                                    [routerLink]="'/filter-media/'+item.tid">{{item.filter}}<span>{{item.count}}</span></a>
+                            </li>
+
+                            }
+
+
+                        </ul><span class="grey-square-rotate"></span><span class="multi-square"><b><i></i></b></span>
+                    </div>
+                </div>
+                <div class="col s9 media-content"><span class="orange-circle"></span>
+                    <div class="flex-row col-3">
+                        <ul aria-label="media center">
+                           
+                                <li *ngFor="let item of resData | paginate: { id:'pagination' ,itemsPerPage: pager?.items_per_page, currentPage: currentPage, totalItems:pager?.count}" class="media-item">
+                                    <div class="category-wrap news">{{item.category}}</div>
+                                    <h3>
+                                        <a
+                                            aria-label='Articles
+                                     test 2023 Published <time datetime="2023-12-19T13:32:12+00:00" class="datetime">19 December 2023</time>
+                                     
+                                    '
+                                            [routerLink]="'/news/'+item.nid"
+                                        >
+                                            {{item.title}}
+                                        </a>
+                                    </h3>
+                                    <div class="mediaList">
+                                        <div class="medialistImg"></div>
+                                        <div class="medialistText">
+                                            <div className="img-wrap imageFixedSize">
+                                                <img
+                                                  alt=""
+                                                  [src]="'http://51.136.51.121/drupal-app/web'+item.field_newsimage"
+                                                />
+                                              </div>
+                                              @if (item.description) {
+                                                <div class="desc">{{item.description}}</div>
+                                              }
+                                            
+                                            <div class="date-wrap" [innerHTML]="item.date"> </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                           
+
+
+                        </ul>
+                    </div>
+                    <nav class="pagination-wrapper" aria-label="pagination">
+                        <ul class="pagination">
+                            <pagination-controls class="" id='pagination'  (pageChange)="pageUpdate($event)" ></pagination-controls>
+                           
+                          
+                           
+                          
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-lower-img></app-lower-img>

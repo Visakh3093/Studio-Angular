@@ -1,0 +1,80 @@
+<app-pagetitle [title]="title"></app-pagetitle>
+
+<div id="skipContent">
+    <div id="main-container">
+        <div class="student-color-container"><span class="grey-square-rotate red-sq one"></span><span
+                class="grey-square-rotate red-sq four"></span><span class="orange-circle one"></span><span
+                class="orange-circle three"></span><span class="multi-square one"><b><i></i></b></span><span
+                class="multi-square three"><b><i></i></b></span></div>
+        <div class="container"><br><br>
+            <div class="center"></div>
+            <div class="row col-8">
+                <form [formGroup]="formData" (ngSubmit)="handleSubmit()" class="login-form loginForm" autocomplete="on">
+                    <h2>Login</h2>
+                    @if(isEmptyObj())
+                    {
+                        <div class="error-container fail" tabindex="0">
+                            <h5>There is a problem with the form, please check and correct the following:</h5>
+                            <ul>
+                                @for (item of getObjectKeys(errorObj) ; track $index) 
+                                {
+                                    <li>
+                                        <label tabindex="0" class="error" [attr.for]="item">
+                                            {{ errorObj[item] }}
+                                          </label>
+                                    </li>
+                                }
+        
+                            </ul>
+                        </div>
+                  }
+                   @if (success) {
+                    <div class="error-container fail" tabindex="0">
+                     
+                 <ul>
+                    <li tabindex="0" aria-label="Invalid credentials"><label class="error">Invalid credentials</label></li>
+                 </ul>
+                    </div>
+
+                   }
+                    
+                   @for (item of inputData; track $index) {
+                    @switch (item.type) {
+                        @case ("email") {
+                            <div class="input-field item"><input name={{item.key}} placeholder="Type your email" autocomplete="no"
+                                class="fontEnglish" id={{item.key}} type="text" value="" formControlName={{item.key}}><label for={{item.key}}
+                                style="left: 0px; right: auto;" class="active">{{item.label}}</label><span class="helper-text"
+                                data-error="Required field."></span></div>
+                        }
+                       @case ("password") {
+                        <div class="input-field item">
+                            <input name="password" autocomplete="no"
+                            placeholder="Type your password" id="password" class="fontEnglish" type="password"
+                            value="" formControlName={{item.key}}><button type="button" aria-label="show password" class="showEyes">
+                                <i  class="fa fa-eye" aria-hidden="true"></i><span>show password</span></button>
+                                <label for="password" style="left: 0px; right: auto;">Password</label><span class="helper-text"
+                            data-error="Required field."></span></div>
+                       }
+                    }
+                   }
+
+                    
+
+                 
+
+
+                    <div class="left-align"><a class="underline-text" routerLink="/forgot-password"><b>Forget
+                                Password?</b></a></div>
+                    <div class="left-align btn-wrap">
+                        
+                        <button type="submit" aria-label="login" class="btn blue login">Login <i
+                                class="material-icons en">arrow_forward</i>
+                            </button>
+                            </div>
+                    <div class="left-align">Don’t have an account? <a class="underline-text"
+                            routerLink="/registration"><b>Sign up</b></a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

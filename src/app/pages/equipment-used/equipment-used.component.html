@@ -1,0 +1,46 @@
+<div id="main-container">
+<app-pagetitle [title]="title"></app-pagetitle>
+    <div class="container">
+        <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/">Home</a> </li>
+                <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                        routerLink="/equipment-used"><span>Equipment Used</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <h2 class="line">Equipment</h2>
+        <div class="row machine-item-small-holder">
+            @for (item of resData; track $index) {
+                <div class="col m12 l6">
+                    <div class="machine-item small">
+                        @if (item.field_equipment_image == '') {
+                            <figure class="machine-item-figure small"><img
+                                src="../../../assets/images/logo56.png"
+                                alt="Coding 101 image"></figure>
+                        }
+                        @else {
+                            <figure class="machine-item-figure small"><img
+                                [src]="'http://51.136.51.121/drupal-app/web'+item.field_equipment_image"
+                                alt="Coding 101 image"></figure>
+
+                        }
+                        
+                        <aside class="machine-item-content">
+                            <h5>{{item.title}}<span>{{item.field_equipment_type}}</span> </h5>
+                            <div class="machine-small-btn"><a target="_black" ><span>Updated
+                                        Model</span><em>{{item.field_updated_model}}</em></a></div>
+                        </aside>
+                    </div>
+                </div>
+            }
+            
+        </div>
+        <nav class="pagination-wrapper" aria-label="pagination">
+            <ul class="pagination">
+                <li class="active"><a class="undefined" href="#" aria-label="Go to page number 1">1</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<app-pagetitle [title]="title"></app-pagetitle>
+
+<div id="main-container">
+
+    <div class="container">
+        <nav class="breadcrumb" id="breadcrumb-wrap" aria-label="breadcrumb">
+            <ul>
+                <li class="breadcrumb-item"><a routerLink="/machines">Machines</a> </li>
+                <li class="breadcrumb-item"><a tabindex="0" aria-current="page"
+                        ><span>{{machineData.title}}</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="skipContent" class="container">
+        <h2 class="line">{{machineData.title}}</h2>
+        <div class="row machine-detail-holder">
+            <div class="col m12 l3">
+                <figure class="machine-detail-figure"><img
+                        [src]="'http://51.136.51.121/drupal-app'+machineData.field_machines_image" alt="">
+                </figure>
+            </div>
+            <div class="col m12 l9 machine-detail-content">
+                <h4> <span>{{machineData.field_machine_type}}</span></h4>
+                <h5 class="blue-text">{{machineData.field_machine_brand}}</h5>
+                <div [innerHTML]="machineData.body">
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs machine-tab-menu">
+                    <li class="tab"><a class="active" (click)="selectTab('feature')">Features</a></li>
+                    <li class="tab"><a class="" (click)="selectTab('materials')">Materials</a></li>
+                    <li class="tab"><a (click)="selectTab('safety_procedure')">Safety procedure</a></li>
+                </ul>
+            </div>
+            @if (selectedTab == 'feature') {
+                <div id="feature" class="col s12 machine-tab-content" [innerHTML]="machineData.field_machine_features">
+                </div>
+            }
+            @else if (selectedTab == 'materials') {
+                <div id="materials" class="col s12 machine-tab-content" [innerHTML]="machineData.field_machine_materials"> 
+                </div>
+            }
+            @else {
+                <div id="safety_procedure" class="col s12 machine-tab-content" [innerHTML]="machineData.field_machine_safety_procedure">
+                </div>
+            }
+            
+            
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<header id="main-header" class="navbar en">
+    <div id="menuPopup" class="modal menuHolder" tabindex="0">
+        <div class="menu-icon-container"><span class="grey-square-rotate red-sq one"></span><span
+                class="grey-square-rotate red-sq two"></span><span class="orange-circle one"></span><span
+                class="orange-circle two"></span></div>
+        <div class="modalContentInner">
+            <div class="modal-content"><span class="badge modalClose"><a><i class="material-icons">close</i></a></span>
+                <h3>Main Menu</h3>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li><a aria-current="page" class="active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Homepage</a></li>
+                            <li><a class="" routerLink="/activities" >Activities</a></li>
+                            <li><a class="" routerLink="/media-center" >Media Center</a></li>
+                            <li><a class="" routerLink="/contact" >Contact us</a></li>
+                            <li><a class="" href="/en/subscribe">Subscribe</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="menuStyle2">
+                            <li><a class="" routerLink="/about" >About us</a></li>
+                            <li><a class="" href="/en/machines">Machines</a></li>
+                            <li><a class="" href="/en/registration">Registration</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="menuStyle2">
+                            <li><a class="" href="/en/privacy-policies">Privacy Policy</a></li>
+                            <li><a class="" href="/en/faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container flex-row" style="direction: ltr;">
+        <nav class="navbar top-menu">
+            <div class="nav-wrapper"><span class="brand-logo"><a href="https://www.mcit.gov.qa/en" target="blank"><img
+                            src="../../../assets/images/logoMCIT.png"
+                            alt="Ministry Of Transport and Communication, homepage"></a><a id="headerLogo"
+                        aria-current="page" class="hideMenuPopover active" routerLink="/" >
+                        <h1><img src="../../../assets/images/logoSTUDIO5.svg" alt="Studio 5, homepage"></h1>
+                    </a></span></div>
+        </nav>
+        <ul id="main-nav" class="sidenav sidenav-fixed align-center"
+            style="direction: ltr; transform: translateX(-105%);">
+            <li><a aria-label="Home" activeclassname="active" aria-current="page" class="sidenav-close"
+                routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+            <li><a aria-label="About us" activeclassname="active" class="sidenav-close"routerLink="/about" routerLinkActive="active" >About us</a>
+            </li>
+            <li><a aria-label="Activities" activeclassname="active" class="sidenav-close"
+                routerLink="/activities" routerLinkActive="active" >Activities</a></li>
+            <li><a aria-label="Media Center" activeclassname="active" class="sidenav-close"
+                routerLink="/media-center" routerLinkActive="active" >Media Center</a></li>
+            <li><a aria-label="Machines" activeclassname="active" class="sidenav-close" routerLink="/machines" routerLinkActive="active" >Machines</a>
+            </li>
+            <li><a aria-label="Equipment" activeclassname="active" class="sidenav-close"
+                routerLink="/equipment-used" routerLinkActive="active" >Equipment</a></li>
+            <li class="contactPopover"><a aria-label="Contact us" activeclassname="active" class="sidenav-close"
+                routerLink="/contact" routerLinkActive="active" >Contact us</a></li>
+            <li class="dropdown"><a aria-label="Login button" activeclassname="active" class="sidenav-close get-started"
+                routerLink="/login" routerLinkActive="active" style="direction: ltr;">Login
+                    <i class="material-icons en">arrow_forward</i></a>
+            </li>
+            <li class="lang languageFocus"><a activeclassname="" aria-label="language button to arabic"
+                    aria-current="page" class="sidenav-close nav-lang active" href="/en/"
+                    style="font-family: politicaextrabold;">ع</a></li>
+        </ul>
+        <a   data-target="main-nav" class="sidenav-trigger sasi"><i class="material-icons">menu</i>
+        </a>
+    </div>
+</header>
+
