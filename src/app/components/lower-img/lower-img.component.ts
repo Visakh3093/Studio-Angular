@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './lower-img.component.html',
-  styleUrl: './lower-img.component.scss'
+  // styleUrl: './lower-img.component.scss'
 })
 export class LowerImgComponent {
 

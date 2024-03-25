@@ -14,12 +14,12 @@ import { FilterDataModel, Pager, ResultantModel } from "../../model/mediacenter.
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink,CommonModule,RouterLinkActive,NgxPaginationModule],
   templateUrl: './media-center.component.html',
-  styleUrl: './media-center.component.scss'
 })
 
 export class MediaCenterComponent implements OnInit {
   constructor(private data:GetApiService){}
   title:string = 'Media Center'
+  baseApi:string = environment.apiUrl
   filterUrl:string = `${environment.apiUrl}/api/filter/en?_format=json`
   dataUrl:string = `${environment.apiUrl}/api/media-centre?_format=json`
   paginationUrl:string = `${environment.apiUrl}/api/media-centre?_format=json&page=`

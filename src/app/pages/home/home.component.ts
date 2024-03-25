@@ -14,7 +14,7 @@ import { RegisterWrapComponent } from '../../components/register-wrap/register-w
             ZoneComponent, ActivityHomeComponent, NewsHomeComponent, 
             RegisterWrapComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  // styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 

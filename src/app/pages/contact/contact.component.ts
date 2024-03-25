@@ -15,7 +15,7 @@ import { ContactResponseModel } from "../../model/contact.interface"
   standalone: true,
   imports: [LowerImgComponent, PagetitleComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  // styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
   title: string = "Contact us"

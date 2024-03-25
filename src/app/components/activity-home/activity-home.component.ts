@@ -9,7 +9,7 @@ import { ActivityHomeModel,Result } from '../../model/home.interface';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './activity-home.component.html',
-  styleUrl: './activity-home.component.scss'
+  // styleUrl: './activity-home.component.scss'
 })
 export class ActivityHomeComponent implements OnInit{
 

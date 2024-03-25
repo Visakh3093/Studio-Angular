@@ -12,7 +12,7 @@ import { environment } from '../../../environments/environment';
   standalone: true,
   imports: [PagetitleComponent,RouterLink,ReactiveFormsModule],
   templateUrl: './forgottpassword.component.html',
-  styleUrl: './forgottpassword.component.scss'
+  // styleUrl: './forgottpassword.component.scss'
 })
 export class ForgottpasswordComponent implements OnInit {
   constructor(private data:GetApiService){}

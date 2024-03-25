@@ -12,7 +12,7 @@ export class GetApiService {
   object = new BehaviorSubject(this.loader)
   constructor(private http: HttpClient) { }
 
-  getData(url: string):any {
+  public getData(url: string):any {
    return this.http.get(url)
   }
 

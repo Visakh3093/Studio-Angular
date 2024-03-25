@@ -14,7 +14,7 @@ import { SubscriberesponseModel } from '../../model/home.interface';
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink,ReactiveFormsModule],
   templateUrl: './subscribe.component.html',
-  styleUrl: './subscribe.component.scss'
+  // styleUrl: './subscribe.component.scss'
 })
 export class SubscribeComponent implements OnInit {
   

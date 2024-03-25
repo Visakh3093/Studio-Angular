@@ -8,21 +8,23 @@ import { AppsliderModel } from '../../model/home.interface'
   standalone: true,
   imports: [],
   templateUrl: './banner.component.html',
-  styleUrl: './banner.component.scss'
+  // styleUrl: './banner.component.scss'
 })
 export class BannerComponent implements OnInit {
     banner:string = ''
     contact:string = ''
     startIndex:number=0;
-    exactPath:string ='' 
+  exactPath:string ='' 
     url:string =`${environment.apiUrl}/api/banner?_format=json`
-    constructor(private data:GetApiService){ }
+    constructor(private _getApiServices:GetApiService){ }
 
 
 
     ngOnInit(): void {
-        this.data.loaderOn()
-        this.data.getData(this.url).subscribe((res:AppsliderModel[])=>{
+        this._getApiServices.loaderOn()
+        this._getApiServices.getData(this.url).subscribe((res:AppsliderModel[])=>{
+          
+          
           this.banner = res[0]?.video
           this.contact = res[0]?.body
           if(this.banner !=='')
@@ -30,9 +32,9 @@ export class BannerComponent implements OnInit {
            this.startIndex = this.banner.indexOf('/sites')
            this.exactPath =  this.banner.substring(this.startIndex)         
           }
-        this.data.loaderOff()
+        this._getApiServices.loaderOff()
         },(err:Error)=>{
-          this.data.loaderOff()
+          this._getApiServices.loaderOff()
         })
             
         

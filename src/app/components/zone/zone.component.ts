@@ -8,7 +8,7 @@ import { ZoneModel } from '../../model/home.interface';
   standalone: true,
   imports: [],
   templateUrl: './zone.component.html',
-  styleUrl: './zone.component.scss'
+  // styleUrl: './zone.component.scss'
 })
 export class ZoneComponent implements OnInit {
   url:string = `${environment.apiUrl}/api/zones?_format=json`

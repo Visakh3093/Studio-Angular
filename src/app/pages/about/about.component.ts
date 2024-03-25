@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { PagetitleComponent } from '../../components/pagetitle/pagetitle.component';
 import { LowerImgComponent } from '../../components/lower-img/lower-img.component';
 import { GetApiService } from '../../services/get-api.service';
@@ -10,24 +10,21 @@ import { AboutModel } from '../../model/about.interface';
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
 })
 export class AboutComponent implements OnInit  {
        
-  response: string = '';
-  title: string = "About";
-  url: string = `${environment.apiUrl}/api/about_page`;
+   response: string = '';
+   title: string = "About";
+   url: string = `${environment.apiUrl}/api/about_page`;
   
-  constructor(private data: GetApiService) {}
+  
+  constructor(private _getApiService: GetApiService) {}
   
   ngOnInit(): void {
-    this.data.getData(this.url).subscribe((res: AboutModel[]) => {
+    this._getApiService.getData(this.url).subscribe((res: AboutModel[]) => {
       this.response = res[0]?.body ?? '';
     });
   
     }
    
-  
-    
-  
   }

@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './volunteer.component.html',
-  styleUrl: './volunteer.component.scss'
+  // styleUrl: './volunteer.component.scss'
 })
 export class VolunteerComponent implements OnInit {
   errorObj: { [key: string]: string } = {}

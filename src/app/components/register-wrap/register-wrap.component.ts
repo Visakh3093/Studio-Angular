@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './register-wrap.component.html',
-  styleUrl: './register-wrap.component.scss'
+  // styleUrl: './register-wrap.component.scss'
 })
 export class RegisterWrapComponent  {
  

@@ -15,7 +15,7 @@ import { ImageArrayModel, MediacenterImage, ResultModel } from '../../model/medi
   standalone: true,
   imports: [GalleryMoreDetailsComponent,NewsMoreDetailsComponent,ArticleMoreDetailsComponent,VideoMoreDetailsComponent],
   templateUrl: './media-details.component.html',
-  styleUrl: './media-details.component.scss'
+  // styleUrl: './media-details.component.scss'
 })
 export class MediaDetailsComponent implements OnInit {
   paramsId:string =""

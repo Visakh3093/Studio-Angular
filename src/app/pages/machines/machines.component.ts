@@ -11,7 +11,6 @@ import { MachineModel } from "../../model/machine.interface"
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink],
   templateUrl: './machines.component.html',
-  styleUrl: './machines.component.scss'
 })
 export class MachinesComponent implements OnInit {
    title:string = 'Machines'

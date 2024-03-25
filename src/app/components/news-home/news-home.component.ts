@@ -9,7 +9,7 @@ import { GalleryModel, VideoModel, articleDataModel } from '../../model/home.int
   standalone: true,
   imports: [RouterLink],
   templateUrl: './news-home.component.html',
-  styleUrl: './news-home.component.scss'
+  // styleUrl: './news-home.component.scss'
 })
 export class NewsHomeComponent implements OnInit {
   articleUrl: string = `${environment.apiUrl}/api/featured-news-article?_format=json`

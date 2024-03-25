@@ -9,7 +9,7 @@ import { AboutHomeModel } from '../../model/home.interface';
   standalone: true,
   imports: [],
   templateUrl: './abouthome.component.html',
-  styleUrl: './abouthome.component.scss'
+  // styleUrl: './abouthome.component.scss'
 })
 export class AbouthomeComponent implements OnInit {
   url: string = `${environment.apiUrl}/api/about?_format=json`

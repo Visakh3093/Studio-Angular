@@ -10,7 +10,7 @@ import { isEmpty } from 'lodash';
   standalone: true,
   imports: [PagetitleComponent,RouterLink,ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  // styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
   errorObj:{ [key: string]: string } = {}

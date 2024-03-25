@@ -16,7 +16,7 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink,ReactiveFormsModule,NgxPaginationModule,CommonModule],
   templateUrl: './activities.component.html',
-  styleUrl: './activities.component.scss'
+  // styleUrl: './activities.component.scss'
 })
 export class ActivitiesComponent implements OnInit {
 

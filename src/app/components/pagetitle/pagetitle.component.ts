@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './pagetitle.component.html',
-  styleUrl: './pagetitle.component.scss'
+  // styleUrl: './pagetitle.component.scss'
 })
 export class PagetitleComponent {
    

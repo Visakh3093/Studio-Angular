@@ -13,7 +13,7 @@ import { SchoolResModel, schoolData } from '../../model/schooldata.interface';
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './school.component.html',
-  styleUrl: './school.component.scss'
+  // styleUrl: './school.component.scss'
 })
 export class SchoolComponent implements OnInit {
   optionData:Partial<schoolData> = {}

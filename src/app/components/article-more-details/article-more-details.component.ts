@@ -9,7 +9,7 @@ import { ImageArrayModel, ResultModel } from '../../model/mediacenter.interface'
   standalone: true,
   imports: [PagetitleComponent,RouterLink,LowerImgComponent],
   templateUrl: './article-more-details.component.html',
-  styleUrl: './article-more-details.component.scss'
+  // styleUrl: './article-more-details.component.scss'
 })
 export class ArticleMoreDetailsComponent {
   title:string ="Article"

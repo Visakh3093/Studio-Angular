@@ -13,7 +13,7 @@ import { GuardianModel } from "../../model/guardian.interface"
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './guardian.component.html',
-  styleUrl: './guardian.component.scss'
+  // styleUrl: './guardian.component.scss'
 })
 export class GuardianComponent implements OnInit {
   mobilePattern: RegExp = /^[0-9]{8}$/;

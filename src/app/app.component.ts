@@ -13,7 +13,6 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   imports: [CommonModule, RouterOutlet,HeaderComponent,FooterComponent,LoaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   loaderValue:boolean = false

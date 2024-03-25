@@ -9,7 +9,7 @@ import { ImageArrayModel, ResultModel } from '../../model/mediacenter.interface'
   standalone: true,
   imports: [PagetitleComponent,RouterLink,LowerImgComponent],
   templateUrl: './video-more-details.component.html',
-  styleUrl: './video-more-details.component.scss'
+  // styleUrl: './video-more-details.component.scss'
 })
 export class VideoMoreDetailsComponent {
   title:string = "Video"

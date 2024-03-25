@@ -10,7 +10,7 @@ import { MachineDataModel, ParamsModel } from '../../model/machine.interface';
   standalone: true,
   imports: [PagetitleComponent,RouterLink],
   templateUrl: './machine-details.component.html',
-  styleUrl: './machine-details.component.scss'
+  // styleUrl: './machine-details.component.scss'
 })
 export class MachineDetailsComponent implements OnInit {
   title:string = "Machines"

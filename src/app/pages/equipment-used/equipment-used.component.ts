@@ -10,7 +10,6 @@ import { EquipmentModel } from "../../model/equipment.interface"
   standalone: true,
   imports: [PagetitleComponent,RouterLink],
   templateUrl: './equipment-used.component.html',
-  styleUrl: './equipment-used.component.scss'
 })
 export class EquipmentUsedComponent implements OnInit {
  title="Equipment"

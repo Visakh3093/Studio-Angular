@@ -14,7 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink,RouterLinkActive,GuardianComponent,VolunteerComponent,StudentComponent,SchoolComponent],
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.scss'
+  // styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent implements OnInit {
   

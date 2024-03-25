@@ -11,7 +11,7 @@ import { ActivityDetailsModel, ActivityImageModel } from '../../model/activity.i
   standalone: true,
   imports: [PagetitleComponent, LowerImgComponent, RouterLink],
   templateUrl: './activity-details.component.html',
-  styleUrl: './activity-details.component.scss'
+  // styleUrl: './activity-details.component.scss'
 })
 export class ActivityDetailsComponent implements OnInit {
   paramsId: number = 0

@@ -12,7 +12,7 @@ import { StudentResModel } from "../../model/student.interface"
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './student.component.html',
-  styleUrl: './student.component.scss'
+  // styleUrl: './student.component.scss'
 })
 export class StudentComponent implements OnInit {
   schoolUrl: string = `${environment.apiUrl}/api/snames?_format=json&lang=en`

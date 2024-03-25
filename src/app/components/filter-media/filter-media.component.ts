@@ -14,7 +14,7 @@ import { FilterDataModel, Pager, ResultantModel, ValueModel } from '../../model/
   standalone: true,
   imports: [PagetitleComponent,LowerImgComponent,RouterLink,NgxPaginationModule,CommonModule],
   templateUrl: './filter-media.component.html',
-  styleUrl: './filter-media.component.scss'
+  // styleUrl: './filter-media.component.scss'
 })
 export class FilterMediaComponent implements OnInit {
 
